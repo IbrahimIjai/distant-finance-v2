@@ -1,18 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxtjs/tailwindcss"],
-  css: ["~/assets/css/main.css"],
-  ui: {
-    colorMode: true,
-    theme: {
-      transitions: true,
-    },
+
+  modules: [
+    '@nuxt/ui',
+    '@nuxt/eslint'
+  ],
+
+  css: ['~/assets/css/main.css'],
+
+  future: {
+    compatibilityVersion: 4
   },
-  tailwindcss: {
-    configPath: '~/tailwind.config.js',
-    exposeConfig: true,
-    viewer: true,
-  },
-});
+
+  compatibilityDate: '2024-11-27'
+})
