@@ -1,2 +1,3 @@
-@import "tailwindcss";
-@import "@nuxt/ui";
+/* Tailwind CSS directives */
+@import "tailwindcss/preflight";
+@tailwind utilities;
