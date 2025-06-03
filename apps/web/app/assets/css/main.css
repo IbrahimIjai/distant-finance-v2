@@ -1,0 +1,114 @@
+@import "tailwindcss" theme(static);
+@import "@nuxt/ui";
+@import "./animations.css";
+@source "../../../content";
+
+@theme {
+  /* --font-sans: "Geist", sans-serif; */
+  /* --font-mono: "JetBrains Mono", monospace; */
+  /* --font-serif: "Newsreader", serif; */
+
+  --animate-ripple-1: ripple 2.5s var(--ease-smooth) infinite 0.15s;
+  --animate-ripple-2: ripple 2.5s var(--ease-smooth) infinite 0.4s;
+  --animate-ripple-3: ripple 2.5s var(--ease-smooth) infinite 0.65s;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ui-bg-inverted);
+  border-radius: 5px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+:root {
+  --ui-bg: var(--color-white);
+  --ui-bg-muted: var(--color-neutral-50);
+  --ui-radius: var(--radius-sm);
+  --ui-container: var(--container-6xl);
+
+  /* --ui-primary: var(--ui-color-primary-500);
+	--ui-secondary: var(--ui-color-secondary-500);
+	--ui-success: var(--ui-color-success-500);
+	--ui-info: var(--ui-color-info-500);
+	--ui-warning: var(--ui-color-warning-500);
+	--ui-error: var(--ui-color-error-500); */
+
+  --ease-smooth: cubic-bezier(0.45, 0, 0.55, 1);
+
+  ::selection {
+    color: #282a30;
+    background-color: #c8c8c8;
+  }
+
+  .default {
+    --ui-container: var(--container-5xl);
+  }
+}
+
+html,
+body,
+#__nuxt,
+#__layout {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+.dark {
+  --ui-bg: var(--color-neutral-950);
+  --ui-bg-muted: var(--color-neutral-900);
+
+  /* --ui-primary: var(--ui-color-primary-400);
+	--ui-secondary: var(--ui-color-secondary-400);
+	--ui-success: var(--ui-color-success-400);
+	--ui-info: var(--ui-color-info-400);
+	--ui-warning: var(--ui-color-warning-400);
+	--ui-error: var(--ui-color-error-400); */
+
+  ::selection {
+    color: #ffffff;
+    background-color: #474747;
+  }
+}
+
+.writing {
+  pre {
+    @apply text-sm sm:text-base text-zinc-900 dark:text-zinc-100 my-4 p-4 bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-x-auto;
+  }
+
+  code {
+    @apply text-zinc-900 dark:text-zinc-100 text-sm px-1.5 py-0.5 bg-neutral-100 dark:bg-neutral-800 rounded;
+  }
+
+  blockquote {
+    @apply pl-4 border-l-4 border-neutral-300 dark:border-neutral-700 my-4 italic;
+  }
+
+  hr {
+    @apply my-8 border-neutral-200 dark:border-neutral-800;
+  }
+
+  img {
+    @apply my-4 rounded-lg max-w-full;
+  }
+
+  figure {
+    @apply my-4;
+  }
+
+  figcaption {
+    @apply text-sm text-neutral-500 dark:text-neutral-400 mt-2;
+  }
+}
