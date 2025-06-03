@@ -28,25 +28,16 @@ export default defineAppConfig({
       },
     },
   },
-  profile: {
-    name: "Sunday Ibrahim Ijai",
-    job: "# [Frontend Engineer, Smart Contract Developer ]{.text-accent}",
-    email: "sundayijai@gmail.com",
-    phone: "+234 816 303 3132",
-    picture: "https://avatars.githubusercontent.com/u/71938701?v=4",
-  },
+
   seo: {
-    title: "Sunday Ibrahim Ijai",
+    title: "Distant Finance",
     description:
-      "Frontend Engineer, Smart Contract Developer based in Nigeria.",
-    url: "https://sundayijai.com",
+      "Distant Finance",
+    url: "https://distant.finance",
     lang: "en",
   },
   socials: {
-    github: "https://github.com/ibrahimijai",
-    twitter: "https://x.com/ibrahimijai",
-    linkedin: "https://www.linkedin.com/in/ibrahim-ijai-sunday-987b91185/",
-    instagram: "https://www.instagram.com/ibrahimijai/",
-    spotify: "https://open.spotify.com/artist/70yqFQVIrj2YjS1rnMRR6O",
+    github: "https://github.com/ibrahimijai/distantfinancev2",
+    twitter: "https://x.com/distantfinance",
   },
 });

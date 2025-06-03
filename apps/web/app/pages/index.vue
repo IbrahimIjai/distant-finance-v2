@@ -1,6 +1,7 @@
 <template>
   <div class="pt-[95px] px-4">
-   Hello Distant Finance
+    Hello Distant Finance
     <appkit-button />
+    <ThemeToggle />
   </div>
 </template>
