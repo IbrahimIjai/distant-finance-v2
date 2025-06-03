@@ -17,6 +17,7 @@ const { seo } = useAppConfig();
 
 import { createAppKit } from "@reown/appkit/vue";
 import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
+import { SolanaAdapter } from "@reown/appkit-adapter-solana";
 import { type AppKitNetwork } from "@reown/appkit/networks";
 import { chains } from "@/utils/reown-config";
 
@@ -36,8 +37,10 @@ const wagmiAdapter = new WagmiAdapter({
   projectId,
 });
 
+const solanaWeb3JsAdapter = new SolanaAdapter()
+
 const modal = createAppKit({
-  adapters: [wagmiAdapter],
+  adapters: [wagmiAdapter, solanaWeb3JsAdapter],
   networks,
   projectId,
   metadata,
