@@ -1,12 +1,12 @@
-@import "tailwindcss" theme(static);
+@import "tailwindcss";
 @import "@nuxt/ui";
 @import "./animations.css";
 @source "../../../content";
 
 @theme {
-  /* --font-sans: "Geist", sans-serif; */
-  /* --font-mono: "JetBrains Mono", monospace; */
-  /* --font-serif: "Newsreader", serif; */
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-serif: "Newsreader", serif;
 
   --animate-ripple-1: ripple 2.5s var(--ease-smooth) infinite 0.15s;
   --animate-ripple-2: ripple 2.5s var(--ease-smooth) infinite 0.4s;
@@ -33,18 +33,6 @@
 }
 
 :root {
-  --ui-bg: var(--color-white);
-  --ui-bg-muted: var(--color-neutral-50);
-  --ui-radius: var(--radius-sm);
-  --ui-container: var(--container-6xl);
-
-  /* --ui-primary: var(--ui-color-primary-500);
-	--ui-secondary: var(--ui-color-secondary-500);
-	--ui-success: var(--ui-color-success-500);
-	--ui-info: var(--ui-color-info-500);
-	--ui-warning: var(--ui-color-warning-500);
-	--ui-error: var(--ui-color-error-500); */
-
   --ease-smooth: cubic-bezier(0.45, 0, 0.55, 1);
 
   ::selection {
@@ -67,16 +55,6 @@ body,
 }
 
 .dark {
-  --ui-bg: var(--color-neutral-950);
-  --ui-bg-muted: var(--color-neutral-900);
-
-  /* --ui-primary: var(--ui-color-primary-400);
-	--ui-secondary: var(--ui-color-secondary-400);
-	--ui-success: var(--ui-color-success-400);
-	--ui-info: var(--ui-color-info-400);
-	--ui-warning: var(--ui-color-warning-400);
-	--ui-error: var(--ui-color-error-400); */
-
   ::selection {
     color: #ffffff;
     background-color: #474747;

@@ -5,6 +5,7 @@
       <NuxtLayout>
         <Toaster position="bottom-right" close-button />
         <div class="min-h-[calc(100dvh-150px)]"><NuxtPage /></div>
+          <Footer />
       </NuxtLayout>
     </UApp>
   </Html>
@@ -12,9 +13,34 @@
 
 <script setup lang="ts">
 import { Toaster } from "vue-sonner";
+const colorMode = useColorMode();
+
+const color = computed(() =>
+  colorMode.value === "dark" ? "#020618" : "white"
+);
 
 const { seo } = useAppConfig();
 
+useHead({
+  meta: [
+    { charset: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    { key: "theme-color", name: "theme-color", content: color },
+  ],
+  link: [{ rel: "icon", href: "/favicon.png" }],
+  htmlAttrs: {
+    lang: "en",
+  },
+});
+
+useSeoMeta({
+  titleTemplate: "%s - Distant Finance",
+  ogImage:
+    "https://assets.hub.nuxt.com/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3BvcnRmb2xpby10ZW1wbGF0ZS5udXh0LmRldiIsImlhdCI6MTc0NTkzNDczMX0.XDWnQoyVy3XVtKQD6PLQ8RFUwr4yr1QnVwPxRrjCrro.jpg?theme=light",
+  twitterImage:
+    "https://assets.hub.nuxt.com/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3BvcnRmb2xpby10ZW1wbGF0ZS5udXh0LmRldiIsImlhdCI6MTc0NTkzNDczMX0.XDWnQoyVy3XVtKQD6PLQ8RFUwr4yr1QnVwPxRrjCrro.jpg?theme=light",
+  twitterCard: "summary_large_image",
+});
 import { createAppKit } from "@reown/appkit/vue";
 import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
 import { SolanaAdapter } from "@reown/appkit-adapter-solana";
@@ -37,7 +63,7 @@ const wagmiAdapter = new WagmiAdapter({
   projectId,
 });
 
-const solanaWeb3JsAdapter = new SolanaAdapter()
+const solanaWeb3JsAdapter = new SolanaAdapter();
 
 const modal = createAppKit({
   adapters: [wagmiAdapter, solanaWeb3JsAdapter],

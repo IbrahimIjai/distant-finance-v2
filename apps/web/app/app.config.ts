@@ -4,6 +4,14 @@ export default defineAppConfig({
       primary: "orange",
       neutral: "neutral",
     },
+    button: {
+      slots: {
+        base: "cursor-pointer",
+      },
+      defaultVariants: {
+        color: "neutral",
+      },
+    },
     prose: {
       h1: {
         base: "text-2xl sm:text-3xl font-serif italic font-[500]",
@@ -31,8 +39,7 @@ export default defineAppConfig({
 
   seo: {
     title: "Distant Finance",
-    description:
-      "Distant Finance",
+    description: "Distant Finance",
     url: "https://distant.finance",
     lang: "en",
   },
