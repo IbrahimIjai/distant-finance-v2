@@ -3,14 +3,14 @@
 <template>
   <footer>
     <USeparator class="h-px z-20" />
-    <div class="container font-mono py-3">
-      <div class="flex justify-between items-center">
+    <div class="container font-mono py-4">
+      <div class="flex justify-between items-center flex-col lg:flex-row gap-3">
         <div class="text-xs tracking-tight">
           <span class="text-muted">
             © {{ new Date().getFullYear() }} - Made by
           </span>
           <ULink target="_blank" to="https://ibrahimijai.dev/" class="italic">
-            Ibrahim Ijai
+            distantlab
           </ULink>
         </div>
         <nav>
