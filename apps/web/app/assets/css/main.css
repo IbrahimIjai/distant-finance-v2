@@ -42,6 +42,7 @@
 
   .default {
     --ui-container: var(--container-5xl);
+    /* --ui-border: var(--ui-color-neutral-500); */
   }
 }
 
@@ -59,7 +60,15 @@ body,
     color: #ffffff;
     background-color: #474747;
   }
+  .default {
+    /* --ui-border: var(--ui-color-neutral-800); */
+  }
 }
+
+.main-gradient {
+  @apply bg-gradient-to-r from-inverted/45 to-inverted to-50% bg-clip-text text-transparent;
+}
+
 
 .writing {
   pre {
