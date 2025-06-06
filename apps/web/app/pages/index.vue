@@ -230,17 +230,115 @@
     </div>
 
     <!-- NFT ECOSYSTEM -->
-
-    <div class="mt-16 space-y-6">
-      <div class="flex flex-col items-center mx-auto gap-2">
-        <UBadge color="neutral" variant="subtle">NFT Ecosystem</UBadge>
-        <h1 class="text-2xl font-semibold">
-          Explore Our NFT Marketplace & P2P Lending
-        </h1>
-        <p class="text-muted text-sm text-center lg:max-w-4/5">
-          Buy, sell, and trade unique digital assets or use them as collateral
-          for loans in our integrated NFT ecosystem.
+    <div class="mt-24">
+      <div class="text-center mb-12">
+        <UBadge variant="subtle" class="mb-4">NFT Ecosystem</UBadge>
+        <h1 class="text-3xl font-bold mb-3">NFT Marketplace & P2P Lending</h1>
+        <p class="text-muted max-w-2xl mx-auto">
+          Trade unique digital assets or leverage them as collateral in our
+          integrated NFT ecosystem.
         </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- NFT Marketplace Card -->
+        <UCard class="h-full hover:shadow-lg transition-shadow duration-300">
+          <template #header>
+            <div class="flex items-center gap-3">
+              <UIcon
+                name="i-heroicons-shopping-bag"
+                class="w-6 h-6 text-primary"
+              />
+              <h3 class="text-xl font-semibold">NFT Marketplace</h3>
+            </div>
+          </template>
+
+          <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-3">
+              <div
+                v-for="(nft, index) in nftListings"
+                :key="index"
+                class="group cursor-pointer"
+              >
+                <div
+                  class="aspect-square bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-1.5"
+                >
+                  <div
+                    class="w-full h-full flex items-center justify-center text-muted"
+                  >
+                    <UIcon name="i-heroicons-photo" class="w-10 h-10" />
+                  </div>
+                </div>
+                <p class="text-sm font-medium truncate">{{ nft.name }}</p>
+                <p class="text-xs text-muted">{{ nft.price }} ETH</p>
+              </div>
+            </div>
+
+            <div
+              class="flex justify-between text-sm pt-2 border-t border-gray-100 dark:border-gray-800"
+            >
+              <span class="text-muted">Total Volume</span>
+              <span class="font-medium">3.6 ETH</span>
+            </div>
+
+            <UButton block class="mt-4">
+              Explore Marketplace
+              <UIcon name="i-heroicons-arrow-right" class="w-4 h-4 ml-2" />
+            </UButton>
+          </div>
+        </UCard>
+
+        <!-- P2P Lending Card -->
+        <UCard class="h-full hover:shadow-lg transition-shadow duration-300">
+          <template #header>
+            <div class="flex items-center gap-3">
+              <UIcon
+                name="i-heroicons-banknotes"
+                class="w-6 h-6 text-primary"
+              />
+              <h3 class="text-xl font-semibold">P2P Lending</h3>
+            </div>
+          </template>
+
+          <div class="flex flex-col h-full min-h-0">
+            <div class="flex-1 overflow-auto space-y-4">
+              <div
+                v-for="(loan, index) in lendingListings"
+                :key="index"
+                class="p-3 border border-default rounded-lg"
+              >
+                <div class="flex items-center gap-3 mb-2">
+                  <div
+                    class="w-10 h-10 rounded-full bg-neutral flex items-center justify-center text-muted"
+                  >
+                    <UIcon name="i-heroicons-photo" class="w-5 h-5" />
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-sm font-medium">{{ loan.name }}</p>
+                    <p class="text-xs text-muted">
+                      Collateral: {{ loan.collateral }} ETH
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-sm font-medium">{{ loan.apy }}% APY</p>
+                    <p class="text-xs text-muted">{{ loan.duration }} days</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-between text-sm pt-2 border-t border-default">
+                <span class="text-muted">Total Volume</span>
+                <span class="font-medium">5.5 ETH</span>
+              </div>
+            </div>
+            <div class="pt-4">
+              <UButton block variant="outline">
+                Explore Lending
+                <UIcon name="i-heroicons-arrow-right" class="w-4 h-4 ml-2" />
+              </UButton>
+            </div>
+          </div>
+        </UCard>
       </div>
     </div>
 
@@ -277,6 +375,20 @@
 </template>
 
 <script setup lang="ts">
+// Sample data
+const nftListings = [
+  { name: "CryptoPunk #1234", price: "1.2" },
+  { name: "Bored Ape #5678", price: "0.8" },
+  { name: "Doodles #9012", price: "0.5" },
+  { name: "Azuki #3456", price: "1.1" },
+];
+
+const lendingListings = [
+  { name: "CryptoPunk #1234", collateral: "2.5", apy: "15", duration: "30" },
+  { name: "Bored Ape #5678", collateral: "1.8", apy: "22", duration: "60" },
+  { name: "Azuki #3456", collateral: "1.2", apy: "18", duration: "45" },
+];
+
 const faqItems = [
   {
     label: "How does the fiat-to-stablecoin conversion work?",
