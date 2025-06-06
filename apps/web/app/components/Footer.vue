@@ -15,8 +15,8 @@
         </div>
         <nav>
           <ul class="flex space-x-4 text-sm">
-            <li><a href="#">Roadmap</a></li>
-            <li><a href="#">Docs</a></li>
+            <li><a href="/">Roadmap</a></li>
+            <li><a href="/">Docs</a></li>
           </ul>
         </nav>
         <div class="flex items-center gap-2">
