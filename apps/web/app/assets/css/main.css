@@ -35,6 +35,10 @@
 :root {
   --ease-smooth: cubic-bezier(0.45, 0, 0.55, 1);
 
+  --ui-primary: black;
+  --ui-bg: var(--color-white);
+  --ui-bg-muted: var(--color-neutral-50);
+
   ::selection {
     color: #282a30;
     background-color: #c8c8c8;
@@ -56,19 +60,19 @@ body,
 }
 
 .dark {
+  --ui-primary: white;
+  --ui-bg: #02020a;
+  --ui-bg-muted: var(--color-neutral-900);
+  
   ::selection {
     color: #ffffff;
-    background-color: #474747;
-  }
-  .default {
-    /* --ui-border: var(--ui-color-neutral-800); */
+    background-color: #02020a;
   }
 }
 
 .main-gradient {
   @apply bg-gradient-to-r from-inverted/45 to-inverted to-50% bg-clip-text text-transparent;
 }
-
 
 .writing {
   pre {

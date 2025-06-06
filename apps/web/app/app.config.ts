@@ -1,7 +1,7 @@
 export default defineAppConfig({
   ui: {
     colors: {
-      primary: "orange",
+      primary: "sky",
       neutral: "neutral",
     },
     button: {
@@ -14,10 +14,10 @@ export default defineAppConfig({
     },
     card: {
       slots: {
-        root: "rounded-lg",
-        header: "p-4 sm:px-6",
-        body: "p-4 sm:p-6",
-        footer: "p-4 sm:px-6",
+        root: "rounded-lg space-y-2 p-4 ",
+        header: "sm:px-1 p-0 border-none",
+        body: "sm:p-1 px-4 p-0 border-none",
+        footer: "p-0 border-none",
       },
     },
     prose: {
