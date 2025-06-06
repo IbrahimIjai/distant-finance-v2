@@ -12,6 +12,14 @@ export default defineAppConfig({
         color: "neutral",
       },
     },
+    card: {
+      slots: {
+        root: "rounded-lg",
+        header: "p-4 sm:px-6",
+        body: "p-4 sm:p-6",
+        footer: "p-4 sm:px-6",
+      },
+    },
     prose: {
       h1: {
         base: "text-2xl sm:text-3xl font-serif italic font-[500]",

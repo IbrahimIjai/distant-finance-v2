@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 @import "./animations.css";
-@source "../../../content";
+/* @source "../../../content"; */
 
 @theme {
   --font-sans: "Geist", sans-serif;
