@@ -51,6 +51,9 @@ importers:
       '@tanstack/vue-query':
         specifier: ^5.79.2
         version: 5.80.6(vue@3.5.16)
+      '@vueuse/core':
+        specifier: ^13.3.0
+        version: 13.3.0(vue@3.5.16)
       '@vueuse/nuxt':
         specifier: ^12.3.0
         version: 12.8.2(nuxt@3.17.5)(typescript@5.8.3)
@@ -6856,6 +6859,7 @@ packages:
 
   /base-x@5.0.1:
     resolution: {integrity: sha512-M7uio8Zt++eg3jPj+rHMfCC+IuygQHHCOU+IYsVtik6FWjuYpVt/+MRKcgsAMHh8mMFAwnB+Bs+mTrFiXjMzKg==}
+    requiresBuild: true
     dev: false
 
   /base64-js@0.0.8:
@@ -9386,7 +9390,7 @@ packages:
     resolution: {integrity: sha512-an2S5quJMiy5bnZKEf6AkfH/7r8CzHvhchU40gxN+OM6HPhe7Z9T1FUychcf2M9PpPOO0Hf7BAEfJkw2TDIBDw==}
     engines: {node: '>=12.0.0'}
     dependencies:
-      readable-stream: 3.6.2
+      readable-stream: 4.7.0
       webextension-polyfill: 0.10.0
     dev: false
 
@@ -12671,10 +12675,10 @@ packages:
         optional: true
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
-      '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.1
-      '@scure/bip32': 1.6.2
-      '@scure/bip39': 1.5.4
+      '@noble/curves': 1.9.2
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
       abitype: 1.0.8(typescript@5.8.3)(zod@3.25.55)
       eventemitter3: 5.0.1
       typescript: 5.8.3

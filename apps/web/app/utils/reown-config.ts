@@ -14,3 +14,11 @@ export const chains: [AppKitNetwork, ...AppKitNetwork[]] = [
   solana,
   solanaTestnet,
 ];
+
+export const SUPPORTED_CHAINS = {
+  BASE: base.id,
+  LISK: lisk.id,
+  CELO: celo.id,
+  SOLANA: solana.id,
+  SOLANA_TESTNET: solanaTestnet.id,
+} as const;
