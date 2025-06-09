@@ -73,7 +73,7 @@ const createCryptoTokens = (): Token[] => {
 
 const FIAT_TOKENS: Token[] = [
   {
-    tokenId: "fiat",
+    tokenId: "ngn",
     name: "Nigerian Naira",
     symbol: "NGN",
     decimals: "fiat",
@@ -83,7 +83,7 @@ const FIAT_TOKENS: Token[] = [
     type: "fiat",
   },
   {
-    tokenId: "fiat",
+    tokenId: "kes",
     name: "Kenyan Shilling",
     symbol: "KES",
     decimals: "fiat",

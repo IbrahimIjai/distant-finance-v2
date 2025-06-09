@@ -326,7 +326,9 @@
                 </div>
               </div>
 
-              <div class="flex justify-between text-sm pt-2 border-t border-default">
+              <div
+                class="flex justify-between text-sm pt-2 border-t border-default"
+              >
                 <span class="text-muted">Total Volume</span>
                 <span class="font-medium">5.5 ETH</span>
               </div>
@@ -371,10 +373,29 @@
         </div>
       </div>
     </section>
+    <TextField
+      v-model="numberValue"
+      type="number"
+      :max-decimals="2"
+      icon="i-heroicons-calculator"
+      @value-change="handleValueChange"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
+// Demo component to showcase TextField usage
+const textValue = ref("");
+const numberValue = ref("");
+const percentValue = ref("");
+const outlineValue = ref("");
+const errorValue = ref("");
+const smallValue = ref("");
+const currencyValue = ref("");
+
+const handleValueChange = (value: string) => {
+  console.log("Value changed:", value);
+};
 // Sample data
 const nftListings = [
   { name: "CryptoPunk #1234", price: "1.2" },
