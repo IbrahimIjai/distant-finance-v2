@@ -42,57 +42,6 @@ export default defineNuxtConfig({
     preference: "dark",
     fallback: "dark",
   },
-  // hub: {
-  // 	ai: true,
-  // 	blob: true,
-  // },
-  content: {
-    build: {
-      markdown: {
-        highlight: {
-          langs: [
-            "ts",
-            "js",
-            "json",
-            "vue",
-            "dockerfile",
-            "docker",
-            "yaml",
-            "css",
-          ],
-          theme: {
-            light: "github-light",
-            dark: "github-dark",
-            default: "github-dark",
-          },
-        },
-      },
-    },
-    preview: {
-      api: "https://api.nuxt.studio",
-      dev: true,
-    },
-  },
-  mdc: {
-    highlight: {
-      theme: {
-        dark: "github-dark",
-        default: "github-dark",
-        light: "github-light",
-      },
-    },
-  },
-
-  turnstile: {
-    siteKey: process.env.TURNSTILE_SITE_KEY,
-  },
-  runtimeConfig: {
-    turnstile: {
-      // This can be overridden at runtime via the NUXT_TURNSTILE_SECRET_KEY
-      // environment variable.
-      secretKey: process.env.TURNSTILE_SECRET_KEY,
-    },
-  },
 
   imports: {
     presets: [
