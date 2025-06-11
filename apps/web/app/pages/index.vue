@@ -373,29 +373,29 @@
         </div>
       </div>
     </section>
-    <TextField
+    <!-- <TextField
       v-model="numberValue"
       type="number"
       :max-decimals="2"
       icon="i-heroicons-calculator"
       @value-change="handleValueChange"
-    />
+    /> -->
   </div>
 </template>
 
 <script setup lang="ts">
-// Demo component to showcase TextField usage
-const textValue = ref("");
-const numberValue = ref("");
-const percentValue = ref("");
-const outlineValue = ref("");
-const errorValue = ref("");
-const smallValue = ref("");
-const currencyValue = ref("");
+// // Demo component to showcase TextField usage
+// const textValue = ref("");
+// const numberValue = ref("");
+// const percentValue = ref("");
+// const outlineValue = ref("");
+// const errorValue = ref("");
+// const smallValue = ref("");
+// const currencyValue = ref("");
 
-const handleValueChange = (value: string) => {
-  console.log("Value changed:", value);
-};
+// const handleValueChange = (value: string) => {
+//   console.log("Value changed:", value);
+// };
 // Sample data
 const nftListings = [
   { name: "CryptoPunk #1234", price: "1.2" },

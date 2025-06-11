@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import pkg from '../../package.json';
+import pkg from "../../package.json";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/image",
     "motion-v/nuxt",
-    "@nuxtjs/turnstile",
+    "@nuxtjs/supabase",
   ],
   ui: {
     theme: {
@@ -38,6 +38,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   colorMode: {
     preference: "dark",
     fallback: "dark",
@@ -51,6 +52,7 @@ export default defineNuxtConfig({
       },
     ],
   },
+
   css: ["~/assets/css/main.css"],
   compatibilityDate: "2025-01-03",
   nitro: {
@@ -58,6 +60,16 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ["/", "/sitemap.xml"],
       ignore: ["/notes", "/notes/**"],
+    },
+  },
+
+  supabase: {
+    redirectOptions: {
+      login: "/auth/login",
+      callback: "/auth/confirm",
+      include: undefined,
+      exclude: ["/**"],
+      saveRedirectToCookie: false,
     },
   },
 });
