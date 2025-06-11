@@ -5,7 +5,7 @@
       <NuxtLayout>
         <Toaster position="bottom-right" close-button />
         <SiteHeader />
-        <div class="min-h-[calc(100dvh-150px)] pt-[120px]"><NuxtPage /></div>
+        <div class="min-h-[calc(100dvh-150px)] pt-[105px]"><NuxtPage /></div>
           <Footer />
       </NuxtLayout>
     </UApp>
