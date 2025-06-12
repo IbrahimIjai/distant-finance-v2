@@ -83,8 +83,8 @@ importers:
         specifier: ^0.7.4
         version: 0.7.6(@vue/compiler-sfc@3.5.16)(eslint@9.28.0)(typescript@5.8.3)(vite@6.3.5)
       '@nuxt/image':
-        specifier: 1.8.1
-        version: 1.8.1
+        specifier: 1.10.0
+        version: 1.10.0
       '@nuxt/scripts':
         specifier: ^0.11.0
         version: 0.11.8(@unhead/vue@2.0.10)(nuxt@3.17.5)(typescript@5.8.3)(vue@3.5.16)
@@ -2462,18 +2462,18 @@ packages:
       - vue
     dev: true
 
-  /@nuxt/image@1.8.1:
-    resolution: {integrity: sha512-qNj7OCNsoGcutGOo1R2PYp4tQ/6uD77aSakyDoVAmLSRJBmhFTnT2+gIqVD95JMmkSHgYhmSX4gGxnaQK/t1cw==}
-    engines: {node: ^14.16.0 || >=16.11.0}
+  /@nuxt/image@1.10.0:
+    resolution: {integrity: sha512-/B58GeEmme7bkmQUrXzEw8P9sJb9BkMaYZqLDtq8ZdDLEddE3P4nVya8RQPB+p4b7EdqWajpPqdy1A2ZPLev/A==}
+    engines: {node: '>=18.20.6'}
     dependencies:
       '@nuxt/kit': 3.17.5(magicast@0.3.5)
       consola: 3.4.2
       defu: 6.1.4
       h3: 1.15.3
       image-meta: 0.2.1
-      node-fetch-native: 1.6.6
-      ohash: 1.1.6
-      pathe: 1.1.2
+      knitwork: 1.2.0
+      ohash: 2.0.11
+      pathe: 2.0.3
       std-env: 3.9.0
       ufo: 1.6.1
     optionalDependencies:
@@ -11136,6 +11136,7 @@ packages:
 
   /is-arrayish@0.3.2:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
+    requiresBuild: true
 
   /is-async-function@2.1.1:
     resolution: {integrity: sha512-9dgM/cZBnNvjzaMYHVoxxfPj2QXt22Ev7SuuPrs+xav0ukGB0S6d4ydZdEiM48kLx5kDV+QBPrpVnFyefL8kkQ==}
@@ -15111,6 +15112,7 @@ packages:
 
   /simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
+    requiresBuild: true
     dependencies:
       is-arrayish: 0.3.2
 
