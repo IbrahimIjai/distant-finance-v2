@@ -22,3 +22,6 @@ export const SUPPORTED_CHAINS = {
   SOLANA: solana.id,
   SOLANA_TESTNET: solanaTestnet.id,
 } as const;
+
+export type SUPPORTED_CHAINS =
+  (typeof SUPPORTED_CHAINS)[keyof typeof SUPPORTED_CHAINS];
