@@ -1,7 +1,7 @@
 <template>
-  <div class="pt-[125px] px-4 space-y-8">
+  <div class="pt-[5px] px-4 space-y-8">
     <!-- Heros -->
-    <div class="py-6">
+    <div class="py-3">
       <h1
         class="font-normal main-gradient text-3xl sm:text-4xl lg:text-5xl lg:w-2/5"
       >
