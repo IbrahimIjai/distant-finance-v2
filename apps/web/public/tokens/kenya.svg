@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Black stripe -->
+  <rect x="0" y="0" width="300" height="40" fill="#000000"/>
+  
+  <!-- White stripe -->
+  <rect x="0" y="40" width="300" height="20" fill="#ffffff"/>
+  
+  <!-- Red stripe -->
+  <rect x="0" y="60" width="300" height="80" fill="#ce1126"/>
+  
+  <!-- White stripe -->
+  <rect x="0" y="140" width="300" height="20" fill="#ffffff"/>
+  
+  <!-- Green stripe -->
+  <rect x="0" y="160" width="300" height="40" fill="#007a3d"/>
+  
+  <!-- Maasai shield -->
+  <ellipse cx="150" cy="100" rx="35" ry="50" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+  <ellipse cx="150" cy="100" rx="30" ry="45" fill="#ce1126"/>
+  <ellipse cx="150" cy="100" rx="20" ry="35" fill="#000000"/>
+  <ellipse cx="150" cy="100" rx="15" ry="28" fill="#ffffff"/>
+  
+  <!-- Spears crossing behind shield -->
+  <line x1="120" y1="70" x2="180" y2="130" stroke="#8b4513" stroke-width="3"/>
+  <line x1="180" y1="70" x2="120" y2="130" stroke="#8b4513" stroke-width="3"/>
+  
+  <!-- Spear tips -->
+  <polygon points="118,68 122,68 120,60" fill="#c0c0c0"/>
+  <polygon points="178,68 182,68 180,60" fill="#c0c0c0"/>
+  <polygon points="118,132 122,132 120,140" fill="#c0c0c0"/>
+  <polygon points="178,132 182,132 180,140" fill="#c0c0c0"/>
+</svg>

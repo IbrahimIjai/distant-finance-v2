@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Green stripe (left) -->
+  <rect x="0" y="0" width="100" height="200" fill="#008751"/>
+  
+  <!-- White stripe (middle) -->
+  <rect x="100" y="0" width="100" height="200" fill="#ffffff"/>
+  
+  <!-- Green stripe (right) -->
+  <rect x="200" y="0" width="100" height="200" fill="#008751"/>
+</svg>
