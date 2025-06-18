@@ -19,10 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
-
-
-
 const formatNumber = (num: number): string => {
   if (num >= 1000000) {
     return (num / 1000000).toFixed(2) + "M";
@@ -39,6 +35,4 @@ const formatTokenAmount = (amount: number, symbol: string): string => {
   }
   return formatNumber(amount) + " " + symbol;
 };
-
-
 </script>
