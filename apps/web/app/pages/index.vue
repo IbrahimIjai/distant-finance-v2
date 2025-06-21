@@ -30,7 +30,7 @@
               class="flex w-full bg-default items-center justify-between rounded-lg px-2 py-3"
             >
               <div class="flex items-center gap-2 flex-col">
-                <UAvatar size="xs" src="/usdc.png" />
+                <UAvatar size="xs" src="/tokens/usdc.png" />
                 <span class="text-xs font-mono">USDC</span>
               </div>
               <div class="flex items-center gap-1/2 flex-col">
@@ -52,7 +52,7 @@
               class="flex w-full bg-default items-center justify-between rounded-lg px-2 py-3"
             >
               <div class="flex items-center gap-2 flex-col">
-                <UAvatar size="xs" src="/naira.png" />
+                <UAvatar size="xs" src="/tokens/nigerian.svg" />
                 <span class="text-xs font-mono">NGN</span>
               </div>
               <div class="flex items-center gap-1/2 flex-col">

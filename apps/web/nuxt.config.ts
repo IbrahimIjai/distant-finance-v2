@@ -52,7 +52,9 @@ export default defineNuxtConfig({
       },
     ],
   },
-
+  site: {
+    url: "https://distant.finance",
+  },
   css: ["~/assets/css/main.css"],
   compatibilityDate: "2025-01-03",
   nitro: {
