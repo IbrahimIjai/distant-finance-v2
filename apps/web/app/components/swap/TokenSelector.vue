@@ -7,14 +7,25 @@
         class="rounded-full"
         @click="isOpen = true"
       >
-        <UAvatar
-          v-if="modelValue?.logoURI"
-          :src="modelValue.logoURI"
-          size="sm"
-        />
-        <span class="mx-1 whitespace-nowrap">{{
-          modelValue?.symbol || "Select Token"
-        }}</span>
+        <div class="flex items-center gap-1 relative">
+          <div class=" relative">
+            <UAvatar
+              v-if="modelValue?.logoURI"
+              :src="modelValue.logoURI"
+              size="md"
+            />
+            <!-- Small chain logo at bottom-right -->
+            <UAvatar
+              v-if="getChainLogo(modelValue?.chainId as SUPPORTED_CHAINS)"
+              :src="getChainLogo(modelValue?.chainId as SUPPORTED_CHAINS)"
+              size="3xs"
+              class="bg-gray-200 absolute -bottom-1 -right-1 z-20 ring-1 ring-white dark:ring-gray-900 rounded-full"
+            />
+          </div>
+          <span class="mx-1 whitespace-nowrap">{{
+            modelValue?.symbol || "Select Token"
+          }}</span>
+        </div>
         <UIcon name="i-lucide-chevron-down" class="size-5" />
       </UButton>
 

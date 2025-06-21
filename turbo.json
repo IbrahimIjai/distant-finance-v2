@@ -4,12 +4,23 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".nuxt/**", ".output/**", "dist/**"]
+      "outputs": [".nuxt/**", ".output/**", "dist/**"],
+      "env": ["DATABASE_URL_OFFCHAIN_WORKER"]
     },
     "lint": {},
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:migrate": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:deploy": {
+      "cache": false
     }
   }
 }

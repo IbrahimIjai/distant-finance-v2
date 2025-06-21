@@ -74,88 +74,151 @@ const isValidSwap = computed(() => {
   return (
     parseFloat(swapState.fromAmount) > 0 &&
     parseFloat(swapState.toAmount) > 0 &&
-    swapState.fromToken &&
-    swapState.toToken &&
-    !swapState.loading
+    swapState.fromToken !== undefined &&
+    swapState.toToken !== undefined &&
+    !swapState.loading &&
+    // !swapState.isSwapping &&
+    swapState.fromToken.type !== swapState.toToken.type
   );
 });
 
-// const exchangeRate = computed(() => {
-// 	if (!swapState.fromAmount || !swapState.toAmount) return "0";
-// 	const rate =
-// 		parseFloat(swapState.toAmount) / parseFloat(swapState.fromAmount);
-// 	return rate.toFixed(6);
-// });
-
-// Debounced function to fetch exchange rate
 const fetchExchangeRate = useDebounceFn(
   async (amount: string, fromToken: Token, toToken: Token) => {
-    if (!amount || parseFloat(amount) <= 0) {
+    // If inputs are invalid, clear 'toAmount' and return.
+    if (!amount || parseFloat(amount) <= 0 || !fromToken || !toToken) {
       swapState.toAmount = "";
+      swapState.loading = false; // Ensure loading state is reset
       return;
     }
 
-    swapState.loading = true;
-    swapState.error = null;
+    // New check: if types are the same, do not fetch rate and show an error
+    if (fromToken.type === toToken.type) {
+      swapState.toAmount = "";
+      swapState.loading = false;
+      swapState.error =
+        "Cannot swap between tokens of the same type (e.g., crypto to crypto or fiat to fiat).";
+      toast.error("Invalid Swap Pair", {
+        description:
+          "Only fiat-to-crypto or crypto-to-fiat swaps are supported.",
+      });
+      return;
+    }
+
+    swapState.loading = true; // Set loading true while fetching rate
+    swapState.error = null; // Clear any previous errors
+    swapState.success = null; // Clear any previous success messages
 
     try {
-      // Simulate API call - replace with actual exchange rate API
+      // Simulate an API call delay for fetching the exchange rate
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // Mock exchange rate calculation
-      const mockRate =
-        fromToken.type === "fiat" && toToken.type === "crypto"
-          ? 0.0012
-          : fromToken.type === "crypto" && toToken.type === "fiat"
-            ? 800
-            : 1; // crypto to crypto or fiat to fiat
+      // Mock exchange rate calculation based on token types.
+      let mockRate;
+      if (fromToken.type === "fiat" && toToken.type === "crypto") {
+        mockRate = 0.0012; // Example: 1 NGN = 0.0012 USDC
+      } else if (fromToken.type === "crypto" && toToken.type === "fiat") {
+        mockRate = 800; // Example: 1 USDC = 800 NGN
+      } else {
+        // This case should ideally be prevented by the UI filtering and initial type check,
+        // but included as a safe fallback.
+        mockRate = 1;
+      }
 
       const outputAmount = parseFloat(amount) * mockRate;
-      swapState.toAmount = outputAmount.toFixed(6);
+      swapState.toAmount = outputAmount.toFixed(6); // Format to 6 decimal places
     } catch (error) {
-      console.log({ error });
-      swapState.error = "Failed to fetch exchange rate";
-      toast.error("An error occurred while fetching exchange rate");
-      swapState.toAmount = "";
+      console.error("Error fetching exchange rate:", error);
+      swapState.error = "Failed to fetch exchange rate.";
+      toast.error("Exchange Rate Error", {
+        description: "An error occurred while fetching the exchange rate.",
+      });
+      swapState.toAmount = ""; // Clear output amount on error
     } finally {
-      swapState.loading = false;
+      swapState.loading = false; // Reset loading state
     }
   },
-  2000
+  2000 // Debounce for 2 seconds
 );
 
 // Event handlers
+// const handleFromTokenChange = (token: Token | undefined) => {
+//   if (!token) return;
+//   if (token.tokenId === swapState.toToken?.tokenId) {
+//     toast.error("Invalid Selection", {
+//       description: "Cannot select same token for both fields",
+//     });
+//     return;
+//   }
+
+//   swapState.fromToken = token;
+
+//   // Recalculate if we have an amount
+//   if (swapState.fromAmount && swapState.toToken) {
+//     fetchExchangeRate(swapState.fromAmount, token, swapState.toToken);
+//   }
+// };
 const handleFromTokenChange = (token: Token | undefined) => {
   if (!token) return;
+
   if (token.tokenId === swapState.toToken?.tokenId) {
     toast.error("Invalid Selection", {
-      description: "Cannot select same token for both fields",
+      description: "Cannot select the same token for both fields.",
     });
     return;
   }
 
   swapState.fromToken = token;
-
-  // Recalculate if we have an amount
-  if (swapState.fromAmount && swapState.toToken) {
+  if (
+    swapState.fromAmount &&
+    parseFloat(swapState.fromAmount) > 0 &&
+    swapState.toToken
+  ) {
     fetchExchangeRate(swapState.fromAmount, token, swapState.toToken);
+  } else {
+    swapState.toAmount = "";
+    swapState.loading = false;
+    swapState.error = null;
   }
 };
 
+// const handleToTokenChange = (token: Token | undefined) => {
+//   if (!token) return;
+//   if (token.tokenId === swapState.fromToken?.tokenId) {
+//     toast.error("Invalid Selection", {
+//       description: "Cannot select same token for both fields",
+//     });
+//     return;
+//   }
+
+//   swapState.toToken = token;
+
+//   // Recalculate if we have an amount
+//   if (swapState.fromAmount && swapState.fromToken) {
+//     fetchExchangeRate(swapState.fromAmount, swapState.fromToken, token);
+//   }
+// };
+
 const handleToTokenChange = (token: Token | undefined) => {
   if (!token) return;
+
   if (token.tokenId === swapState.fromToken?.tokenId) {
     toast.error("Invalid Selection", {
-      description: "Cannot select same token for both fields",
+      description: "Cannot select the same token for both fields.",
     });
     return;
   }
 
   swapState.toToken = token;
-
-  // Recalculate if we have an amount
-  if (swapState.fromAmount && swapState.fromToken) {
+  if (
+    swapState.fromAmount &&
+    parseFloat(swapState.fromAmount) > 0 &&
+    swapState.fromToken
+  ) {
     fetchExchangeRate(swapState.fromAmount, swapState.fromToken, token);
+  } else {
+    swapState.toAmount = "";
+    swapState.loading = false;
+    swapState.error = null;
   }
 };
 
@@ -170,6 +233,9 @@ const handleFromAmountChange = (value: string) => {
 };
 
 const swapTokens = () => {
+  swapState.error = null;
+  swapState.success = null;
+
   const tempToken = swapState.fromToken;
   const tempAmount = swapState.fromAmount;
 
@@ -179,32 +245,82 @@ const swapTokens = () => {
   swapState.fromAmount = swapState.toAmount;
   swapState.toAmount = tempAmount;
 
-  // Recalculate with swapped values
-  if (swapState.fromAmount && swapState.fromToken && swapState.toToken) {
+  if (
+    swapState.fromAmount &&
+    parseFloat(swapState.fromAmount) > 0 &&
+    swapState.fromToken &&
+    swapState.toToken
+  ) {
     fetchExchangeRate(
       swapState.fromAmount,
       swapState.fromToken,
       swapState.toToken
     );
+  } else {
+    swapState.loading = false;
+    swapState.toAmount = "";
   }
 };
 
-const handleSwap = () => {
-  if (!isValidSwap.value) return;
+const handleSwap = async () => {
+  if (!isValidSwap.value) {
+    toast.warning("Swap Not Valid", {
+      description: "Please enter valid amounts and select tokens to proceed.",
+    });
+    return;
+  }
 
-  console.log("Swapping", {
-    from: {
-      token: swapState.fromToken,
-      amount: swapState.fromAmount,
-    },
-    to: {
-      token: swapState.toToken,
-      amount: swapState.toAmount,
-    },
-  });
+  // swapState.isSwapping = true; 
+  swapState.error = null; 
+  swapState.success = null; 
 
-  toast.success("Swap initiated", {
-    description: `Swapping ${swapState.fromAmount} ${swapState.fromToken?.symbol} to ${swapState.toAmount} ${swapState.toToken?.symbol}`,
-  });
+  try {
+    const swapPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const success = Math.random() > 0.3; 
+        if (success) {
+          resolve("Your swap was successful!");
+        } else {
+          reject(
+            new Error(
+              "Insufficient balance or network error. Please try again."
+            )
+          );
+        }
+      }, 2500); 
+    });
+
+    await toast.promise(swapPromise as Promise<string>, {
+      loading: "Initiating swap...",
+      success: (message:string) => {
+        swapState.success = message;
+        swapState.fromAmount = "";
+        swapState.toAmount = "";
+        swapState.fromToken = undefined;
+        swapState.toToken = undefined;
+        return message;
+      },
+      error: (error: Error) => {
+        swapState.error =
+          error instanceof Error
+            ? error.message
+            : "An unexpected error occurred";
+        return `Swap failed: ${swapState.error}`;
+      },
+    });
+  } catch (err) {
+    console.error("An unexpected error occurred during swap:", err);
+  } finally {
+    if (swapState.success) {
+      setTimeout(() => {
+        swapState.success = null;
+      }, 5000);
+    }
+    if (swapState.error) {
+      setTimeout(() => {
+        swapState.error = null;
+      }, 5000);
+    }
+  }
 };
 </script>

@@ -5,7 +5,7 @@ export interface Token {
   name: string;
   symbol: string;
   decimals: number | "fiat";
-  chainId: number | "fiat";
+  chainId: SUPPORTED_CHAINS;
   address: string;
   logoURI: string;
   type: "crypto" | "fiat";
@@ -30,40 +30,28 @@ const createCryptoTokens = (): Token[] => {
 
   // USDC tokens
   Object.entries(TOKEN_ADDRESSES.USDC).forEach(([chainId, address]) => {
-    const chainIdNum = Number.parseInt(chainId);
-    const chainName = Object.keys(SUPPORTED_CHAINS).find(
-      (key) =>
-        SUPPORTED_CHAINS[key as keyof typeof SUPPORTED_CHAINS] === chainIdNum
-    );
-
     tokens.push({
       tokenId: `${address}:${chainId}`,
       name: "USD Coin",
       symbol: "USDC",
       decimals: 6,
-      chainId: chainIdNum,
+      chainId: chainId as SUPPORTED_CHAINS,
       address,
-      logoURI: "https://cryptologos.cc/logos/usd-coin-usdc-logo.png",
+      logoURI: "/tokens/usdc.png",
       type: "crypto",
     });
   });
 
   // USDT tokens
   Object.entries(TOKEN_ADDRESSES.USDT).forEach(([chainId, address]) => {
-    const chainIdNum = Number.parseInt(chainId);
-    const chainName = Object.keys(SUPPORTED_CHAINS).find(
-      (key) =>
-        SUPPORTED_CHAINS[key as keyof typeof SUPPORTED_CHAINS] === chainIdNum
-    );
-
     tokens.push({
       tokenId: `${address}:${chainId}`,
       name: "Tether USD",
       symbol: "USDT",
       decimals: 6,
-      chainId: chainIdNum,
+      chainId: chainId as SUPPORTED_CHAINS,
       address,
-      logoURI: "https://cryptologos.cc/logos/tether-usdt-logo.png",
+      logoURI: "/tokens/usdt.jpg",
       type: "crypto",
     });
   });
@@ -77,9 +65,19 @@ const FIAT_TOKENS: Token[] = [
     name: "Nigerian Naira",
     symbol: "NGN",
     decimals: "fiat",
-    chainId: "fiat",
+    chainId: SUPPORTED_CHAINS.BASE,
     address: "fiat",
-    logoURI: "https://flagcdn.com/w40/ng.png",
+    logoURI: "/tokens/nigerian.svg",
+    type: "fiat",
+  },
+  {
+    tokenId: "ngn",
+    name: "Nigerian Naira",
+    symbol: "NGN",
+    decimals: "fiat",
+    chainId: SUPPORTED_CHAINS.CELO,
+    address: "fiat",
+    logoURI: "/tokens/nigerian.svg",
     type: "fiat",
   },
   {
@@ -87,9 +85,9 @@ const FIAT_TOKENS: Token[] = [
     name: "Kenyan Shilling",
     symbol: "KES",
     decimals: "fiat",
-    chainId: "fiat",
+    chainId: SUPPORTED_CHAINS.BASE,
     address: "fiat",
-    logoURI: "https://flagcdn.com/w40/ke.png",
+    logoURI: "/tokens/kenya.svg",
     type: "fiat",
   },
 ];
