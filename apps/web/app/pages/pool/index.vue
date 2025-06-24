@@ -19,20 +19,7 @@
 </template>
 
 <script setup lang="ts">
-const formatNumber = (num: number): string => {
-  if (num >= 1000000) {
-    return (num / 1000000).toFixed(2) + "M";
-  }
-  if (num >= 1000) {
-    return (num / 1000).toFixed(2) + "K";
-  }
-  return num.toLocaleString();
-};
 
-const formatTokenAmount = (amount: number, symbol: string): string => {
-  if (symbol === "NGN" || symbol === "KES") {
-    return formatNumber(amount) + " " + symbol;
-  }
-  return formatNumber(amount) + " " + symbol;
-};
+
+
 </script>
