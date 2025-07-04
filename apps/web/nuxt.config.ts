@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   $development: {
     runtimeConfig: {
       public: {
-        offchainworkerApiUrl: "http://127.0.0.1:8787",
+        offchainworkerApiUrl: "https://micro-built.onrender.com",
       },
     },
   },
@@ -58,10 +58,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-01-03",
   nitro: {
     prerender: {
-      crawlLinks: true,
+      crawlLinks: false,
       routes: ["/", "/sitemap.xml"],
-      ignore: ["/notes", "/notes/**"],
+      failOnError: false, // Don't fail build on prerender errors
     },
+    logLevel: 'verbose', // Enable verbose logging
   },
 
   supabase: {
