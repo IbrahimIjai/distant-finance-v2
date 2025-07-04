@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/ui",
     "@nuxtjs/seo",
-    "@nuxt/content",
     "@nuxt/eslint",
     "@vueuse/nuxt",
     "@nuxt/image",
