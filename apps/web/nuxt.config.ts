@@ -1,5 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import pkg from "../../package.json";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },

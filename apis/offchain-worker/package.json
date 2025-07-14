@@ -6,8 +6,9 @@
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
-    "hono": "^4.7.11",
-    "@distant/db": "*"
+    "@distant/db": "workspace:*",
+    "better-auth": "^1.2.12",
+    "hono": "^4.7.11"
   },
   "devDependencies": {
     "wrangler": "^4.19.1"
