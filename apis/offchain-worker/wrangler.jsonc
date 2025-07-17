@@ -2,13 +2,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "offchain-worker",
   "main": "src/index.ts",
-  "compatibility_date": "2025-06-06"
-  // "compatibility_flags": [
-  //   "nodejs_compat"
-  // ],
-  // "vars": {
-  //   "MY_VAR": "my-variable"
-  // },
+  "compatibility_date": "2025-06-06",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "vars": {},
   // "kv_namespaces": [
   //   {
   //     "binding": "MY_KV_NAMESPACE",
