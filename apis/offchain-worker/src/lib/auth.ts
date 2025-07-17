@@ -4,7 +4,10 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { emailOTP } from "better-auth/plugins";
 
 export const auth = betterAuth({
+<<<<<<< HEAD
   baseURL: "https://example.com",
+=======
+>>>>>>> d81dd9104f147d0e59b5b35077c052df05fe42cb
   secret: process.env.BETTER_AUTH_SECRET as string,
   database: prismaAdapter(prisma, {
     provider: "postgresql",
@@ -22,9 +25,12 @@ export const auth = betterAuth({
       },
     }),
   ],
+<<<<<<< HEAD
   advanced: {
     crossSubDomainCookies: {
       enabled: true,
     },
   },
+=======
+>>>>>>> d81dd9104f147d0e59b5b35077c052df05fe42cb
 });
