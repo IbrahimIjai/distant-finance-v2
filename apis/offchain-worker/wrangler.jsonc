@@ -4,8 +4,6 @@
   "main": "src/index.ts",
   "compatibility_date": "2025-06-06",
   "compatibility_flags": ["nodejs_compat"],
-
-  "vars": {},
   // "kv_namespaces": [
   //   {
   //     "binding": "MY_KV_NAMESPACE",

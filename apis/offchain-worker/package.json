@@ -7,10 +7,6 @@
   },
   "dependencies": {
     "@distant/db": "workspace:*",
-<<<<<<< HEAD
-    "@prisma/extension-accelerate": "^2.0.1",
-=======
->>>>>>> d81dd9104f147d0e59b5b35077c052df05fe42cb
     "better-auth": "^1.2.12",
     "hono": "^4.7.11"
   },

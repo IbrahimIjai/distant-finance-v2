@@ -1,19 +1,23 @@
 import { Hono } from "hono";
 import cors from "./middleware/cors";
-// import authContext from "./context/authContext";
 import { auth } from "./lib/auth";
 
 const app = new Hono<{
+  Bindings: CloudflareBindings;
   Variables: {
-    user: typeof auth.$Infer.Session.user | null;
-    session: typeof auth.$Infer.Session.session | null;
+    user: Awaited<ReturnType<typeof auth>>["$Infer"]["Session"]["user"] | null;
+    session:
+      | Awaited<ReturnType<typeof auth>>["$Infer"]["Session"]["session"]
+      | null;
   };
 }>();
 
 // middleware/Contexts
 app.use(cors);
 app.use("*", async (c, next) => {
-  const session = await auth.api.getSession({ headers: c.req.raw.headers });
+  const session = await auth(c.env).api.getSession({
+    headers: c.req.raw.headers,
+  });
 
   if (!session) {
     c.set("user", null);
@@ -27,6 +31,6 @@ app.use("*", async (c, next) => {
 });
 
 app.on(["POST", "GET"], "/api/auth/*", (c) => {
-  return auth.handler(c.req.raw);
+  return auth(c.env).handler(c.req.raw);
 });
 export default app;
