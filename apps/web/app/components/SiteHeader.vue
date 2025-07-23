@@ -1,6 +1,8 @@
 <template>
   <header>
-    <div class="container max-w-6xl mx-auto bg-default py-3 px-4 fixed top-0 inset-x-0 border-b border-default">
+    <div
+      class="container max-w-6xl mx-auto bg-default py-3 px-4 fixed top-0 inset-x-0 border-b border-default"
+    >
       <div class="flex justify-between items-center">
         <!-- Logo -->
         <div>
@@ -59,11 +61,12 @@
             :items="dropdownn_items"
             :ui="{
               content: 'w-48',
-          }"
-        >
-          <UButton icon="i-lucide-menu" color="neutral" variant="outline" />
-        </UDropdownMenu>
-        <ConnectButton />
+            }"
+          >
+            <UButton icon="i-lucide-menu" color="neutral" variant="outline" />
+          </UDropdownMenu>
+          <ConnectButton />
+          <Web2SigninButton />
         </div>
       </div>
     </div>
