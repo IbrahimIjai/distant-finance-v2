@@ -76,8 +76,8 @@ importers:
         specifier: ^1.2.0
         version: 1.4.0(react@18.3.1)(vue@3.5.17)
       tailwindcss:
-        specifier: 4.0.14
-        version: 4.0.14
+        specifier: 4.1.11
+        version: 4.1.11
       viem:
         specifier: ^2.30.6
         version: 2.31.7(typescript@5.8.3)(zod@3.22.4)
@@ -14612,9 +14612,8 @@ packages:
       tailwindcss: 4.1.11
     dev: true
 
-  /tailwindcss@4.0.14:
-    resolution: {integrity: sha512-92YT2dpt671tFiHH/e1ok9D987N9fHD5VWoly1CdPD/Cd1HMglvZwP3nx2yTj2lbXDAHt8QssZkxTLCCTNL+xw==}
-    dev: false
+  /tailwindcss@4.1.11:
+    resolution: {integrity: sha512-2E9TBm6MDD/xKYe+dvJZAmg3yxIEDNRc0jwlNyDg/4Fil2QcSLjFKGVff0lAf1jjeaArlG/M75Ey/EYr/OJtBA==}
 
   /tailwindcss@4.1.11:
     resolution: {integrity: sha512-2E9TBm6MDD/xKYe+dvJZAmg3yxIEDNRc0jwlNyDg/4Fil2QcSLjFKGVff0lAf1jjeaArlG/M75Ey/EYr/OJtBA==}
