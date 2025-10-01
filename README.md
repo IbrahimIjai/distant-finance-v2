@@ -97,7 +97,7 @@ pnpm turbo run format
 ```
 0xmove/
 ├── apps/
-│   ├── api/                     # Backend API (Node.js/Express + Drizzle)
+│   ├── api/                     # Backend API (HonoJs + Drizzle)
 │   │   ├── src/
 │   │   │   ├── db/              # Database schemas and queries
 │   │   │   ├── lib/             # Auth and utilities
