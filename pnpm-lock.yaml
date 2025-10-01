@@ -61,6 +61,9 @@ importers:
       drizzle-kit:
         specifier: ^0.31.5
         version: 0.31.5
+      srvx:
+        specifier: ^0.8.9
+        version: 0.8.9
       tsx:
         specifier: ^4.7.1
         version: 4.20.6
@@ -14818,6 +14821,14 @@ packages:
     resolution: {integrity: sha512-UcjcJOWknrNkF6PLX83qcHM6KHgVKNkV62Y8a5uYDVv9ydGQVwAHMKqHdJje1VTWpljG0WYpCDhrCdAOYH4TWg==}
     engines: {node: '>= 10.x'}
     dev: false
+
+  /srvx@0.8.9:
+    resolution: {integrity: sha512-wYc3VLZHRzwYrWJhkEqkhLb31TI0SOkfYZDkUhXdp3NoCnNS0FqajiQszZZjfow/VYEuc6Q5sZh9nM6kPy2NBQ==}
+    engines: {node: '>=20.16.0'}
+    hasBin: true
+    dependencies:
+      cookie-es: 2.0.0
+    dev: true
 
   /stable-hash-x@0.2.0:
     resolution: {integrity: sha512-o3yWv49B/o4QZk5ZcsALc6t0+eCelPc44zZsLtCQnZPDwFpDYSWcDnrv2TtMmMbQ7uKo3J0HTURCqckw23czNQ==}
