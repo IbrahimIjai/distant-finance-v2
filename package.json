@@ -1,5 +1,5 @@
 {
-  "name": "with-vue-nuxt",
+  "name": "0xmove",
   "private": true,
   "scripts": {
     "build": "turbo run build",
