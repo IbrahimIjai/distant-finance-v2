@@ -1,6 +1,5 @@
 # 0xmove
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![pnpm](https://img.shields.io/badge/pnpm-%3E%3D9-green)](https://pnpm.io/)
 [![Turbo](https://img.shields.io/badge/Turbo-Monorepo-blue)](https://turbo.build/)
 
@@ -23,122 +22,143 @@ This repo uses [Turbo](https://turbo.build/) for monorepo management, [Nuxt](htt
 - **Community-First**: MIT-licensed, with bounties for contributions (e.g., new pools).
 
 ## Quick Start
+
 ### Prerequisites
 - Node.js ≥18
 - pnpm ≥9 (install via [pnpm.io](https://pnpm.io/installation))
-- Foundry or Hardhat for contract testing (install via `curl -L https://foundry.paradigm.xyz | bash` for Foundry)
+- Foundry for contract testing (install via `curl -L https://foundry.paradigm.xyz | bash`)
 - Paystack sandbox account (sign up at [paystack.com](https://paystack.com))
 
 ### Installation
+
 1. Clone the repo:
    ```bash
    git clone https://github.com/yourusername/0xmove.git
    cd 0xmove
-   Install dependencies:
-bashpnpm install
+   ```
 
-Set up environment variables:
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-Copy .env.example to .env in root, apps/api, and apps/web.
-Add your Paystack keys (sandbox mode), RPC URLs, and DB creds (e.g., PostgreSQL for Drizzle).
+3. Set up environment variables:
+   - Copy `.env.example` to `.env` in root, `apps/api`, and `apps/web`
+   - Add your Paystack keys (sandbox mode), RPC URLs, and DB creds
+   
+   ```bash
+   # Example .env
+   DATABASE_URL=postgresql://user:pass@localhost:5432/0xmove
+   PAYSTACK_SECRET_KEY=sk_test_yourkey
+   BETTER_AUTH_SECRET=your_secret_key
+   BETTER_AUTH_URL=http://localhost:3010
+   ```
 
-bash# Example .env
-DATABASE_URL=postgresql://user:pass@localhost:5432/0xmove
-PAYSTACK_SECRET_KEY=sk_test_yourkey
+4. Run migrations:
+   ```bash
+   pnpm turbo run db:migrate
+   ```
 
-Run migrations (for Drizzle DB):
-bashpnpm turbo run db:migrate
+## Development
 
+Start all services:
+```bash
+pnpm turbo run dev
+```
 
-Development
-
-Start all services (API on http://localhost:3010, Web on http://localhost:3000, Contracts in watch mode):
-bashpnpm turbo run dev
-
-Web: http://localhost:3000 (Nuxt dev server with hot reload).
-API: http://localhost:3010 (e.g., /api/pools for pool data).
-Contracts: Auto-compiles Solidity in contracts/; test with pnpm turbo run test:contracts.
-
+- **Web**: http://localhost:3000 (Nuxt dev server with hot reload)
+- **API**: http://localhost:3010 (API endpoints)
+- **Contracts**: Auto-compiles Solidity in `contracts/`
 
 Build for production:
-bashpnpm turbo run build
-pnpm start  # Or turbo run start
+```bash
+pnpm turbo run build
+pnpm start
+```
 
 Lint and format:
-bashpnpm turbo run lint
+```bash
+pnpm turbo run lint
 pnpm turbo run format
+```
 
+## Contracts Deployment
 
-Contracts Deployment
+1. Install Foundry if not done
+2. Compile and test:
+   ```bash
+   cd contracts/test-staking
+   forge build
+   forge test
+   ```
 
-Install Foundry if not done.
-Compile and test:
-bashcd contracts
-forge build
-forge test
+## Project Structure
 
-Project Structure
-
+```
 0xmove/
 ├── apps/
-│   ├── api/                  # Backend API (Node.js/Express + Drizzle)
+│   ├── api/                     # Backend API (Node.js/Express + Drizzle)
 │   │   ├── src/
-│   │   │   ├── routes/       # API endpoints (e.g., /pools, /ramps)
-│   │   │   ├── db/           # Drizzle schemas and queries
-│   │   │   └── index.ts      # Server entry
-│   │   ├── package.json
-│   │   └── turbo.json
-│   └── web/                  # Frontend (Nuxt 3)
-│       ├── pages/            # Nuxt pages (e.g., /pools, /dashboard)
-│       ├── components/       # Reusable UI (e.g., PoolCard.vue)
-│       ├── composables/      # Vue composables (e.g., useRamp)
+│   │   │   ├── db/              # Database schemas and queries
+│   │   │   ├── lib/             # Auth and utilities
+│   │   │   └── index.ts         # Server entry
+│   │   ├── migrations/          # Database migrations
+│   │   ├── drizzle.config.ts
+│   │   └── package.json
+│   └── web/                     # Frontend (Nuxt 3)
+│       ├── app/
+│       │   ├── components/      # Vue components
+│       │   ├── composables/     # Vue composables
+│       │   ├── layouts/         # Nuxt layouts
+│       │   ├── pages/           # Nuxt pages
+│       │   └── plugins/         # Nuxt plugins
+│       ├── server/              # Server-side API routes
+│       ├── public/              # Static assets
 │       ├── nuxt.config.ts
 │       └── package.json
-├── contracts/                # Solidity staking protocol
-│   ├── src/
-│   │   └── Staking.sol       # Core staking contract for pools
-│   ├── script/
-│   │   └── DeployStaking.s.sol  # Deployment script
-│   ├── test/
-│   │   └── Staking.t.sol     # Foundry tests
-│   ├── foundry.toml
-│   └── README.md             # Contract-specific docs
+├── contracts/
+│   ├── marketplace-contract/    # NFT Marketplace contracts
+│   │   ├── src/
+│   │   │   └── NFTMarketPlace.sol
+│   │   ├── test/
+│   │   └── foundry.toml
+│   └── test-staking/           # Staking protocol contracts
+│       ├── src/
+│       │   ├── Staking.sol     # Core staking contract
+│       │   └── RewardsDistributionRecipient.sol
+│       ├── test/
+│       └── foundry.toml
 ├── packages/
-│   ├── database/             # Shared Drizzle config
-│   │   ├── schema.ts
-│   │   └── drizzle.config.ts
-│   │   └── package.json
-│   ├── ui/                   # Shared UI components (Tailwind/Vue)
-│   │   ├── components/
-│   │   └── package.json
-│   └── configs/              # Shared tooling
-│       ├── eslint/
-│       │   └── eslintrc.js
-│       ├── tsconfig/
-│       │   └── tsconfig.json
-│       └── package.json
-├── .env.example              # Root env template
-├── turbo.json                # Turbo pipelines (dev, build, lint)
-├── pnpm-workspace.yaml       # Monorepo workspaces
-├── package.json              # Root deps (Turbo, types)
-└── README.md                 # This file!
+│   ├── database/               # Shared database config (Prisma)
+│   │   ├── prisma/
+│   │   │   └── schema.prisma
+│   │   └── src/
+│   ├── eslint-config-custom/   # Shared ESLint configs
+│   ├── tsconfig/              # Shared TypeScript configs
+│   └── ui/                    # Shared UI components
+│       └── src/
+├── turbo.json                 # Turbo pipelines
+├── pnpm-workspace.yaml        # Monorepo workspaces
+├── package.json               # Root dependencies
+└── README.md                  # This file!
+```
 
+## Contributing
 
-Contributing
 We welcome contributions to make 0xmove more robust and accessible! Whether it's bug fixes, new features (e.g., KES pool enhancements), or docs—fork, branch, and PR.
-Guidelines
 
-Branching: Use feat/<feature>, fix/<issue>, or docs/<update>.
-Commits: Follow Conventional Commits (e.g., feat(api): add ramp endpoint).
-Testing: Ensure tests pass (pnpm turbo run test) and lint (pnpm turbo run lint).
-PRs:
+### Guidelines
 
-Reference issues (e.g., "Fixes #42").
-Include changelog entry in CHANGELOG.md.
-For contracts: Add Slither scan results.
+- **Branching**: Use `feat/<feature>`, `fix/<issue>`, or `docs/<update>`
+- **Commits**: Follow Conventional Commits (e.g., `feat(api): add ramp endpoint`)
+- **Testing**: Ensure tests pass (`pnpm turbo run test`) and lint (`pnpm turbo run lint`)
+- **PRs**:
+  - Reference issues (e.g., "Fixes #42")
+  - Include changelog entry in `CHANGELOG.md`
+  - For contracts: Add Slither scan results
 
+**Bounties**: Check GitHub Issues for paid tasks (e.g., $100 for UI polish).
 
-Bounties: Check GitHub Issues for paid tasks (e.g., $100 for UI polish).
+## Code of Conduct
 
-Code of Conduct
-This project follows the Contributor Covenant.
+This project follows the [Contributor Covenant](https://www.contributor-covenant.org/).
