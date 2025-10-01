@@ -119,8 +119,8 @@ importers:
         specifier: 1.8.1
         version: 1.8.1(db0@0.3.2(drizzle-orm@0.44.5(@neondatabase/serverless@1.0.2)(@types/pg@8.15.5)(kysely@0.28.7)(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.0)(magicast@0.3.5)
       '@nuxt/scripts':
-        specifier: ^0.11.0
-        version: 0.11.13(@unhead/vue@2.0.17(vue@3.5.22(typescript@5.9.3)))(db0@0.3.2(drizzle-orm@0.44.5(@neondatabase/serverless@1.0.2)(@types/pg@8.15.5)(kysely@0.28.7)(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.0)(magicast@0.3.5)(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
+        specifier: ^0.12.0
+        version: 0.12.1(@googlemaps/markerclusterer@2.6.2)(@unhead/vue@2.0.17(vue@3.5.22(typescript@5.9.3)))(db0@0.3.2(drizzle-orm@0.44.5(@neondatabase/serverless@1.0.2)(@types/pg@8.15.5)(kysely@0.28.7)(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.0)(magicast@0.3.5)(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
       '@nuxt/ui':
         specifier: 3.1.3
         version: 3.1.3(@babel/parser@7.28.4)(db0@0.3.2(drizzle-orm@0.44.5(@neondatabase/serverless@1.0.2)(@types/pg@8.15.5)(kysely@0.28.7)(pg@8.16.3)))(embla-carousel@8.6.0)(idb-keyval@6.2.2)(ioredis@5.8.0)(magicast@0.3.5)(qrcode@1.5.3)(superstruct@2.0.2)(typescript@5.9.3)(valibot@1.1.0(typescript@5.9.3))(vite@7.1.7(@types/node@22.18.8)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))(zod@4.1.11)
@@ -772,6 +772,9 @@ packages:
     peerDependencies:
       viem: '>=2.0.0'
 
+  '@googlemaps/markerclusterer@2.6.2':
+    resolution: {integrity: sha512-U6uVhq8iWhiIckA89sgRu8OK35mjd6/3CuoZKWakKEf0QmRRWpatlsPb3kqXkoWSmbcZkopRiI4dnW6DQSd7bQ==}
+
   '@hexagon/base64@1.1.28':
     resolution: {integrity: sha512-lhqDEAvWixy3bZ+UOYbPwUbBkwBq5C1LAJ/xPC8Oi+lL54oyakv/npbA0aU2hgCsx/1NUd4IBvV03+aUBWxerw==}
 
@@ -1157,15 +1160,19 @@ packages:
     resolution: {integrity: sha512-kMN2oIfrsMc8ACrRweYRG7Q44/KuHG5y7L+4szQhfOgN78OiYkxiM/nSsLH0K2bJq8Eavg+WGfgACj4Lsy+YqQ==}
     engines: {node: ^14.18.0 || >=16.10.0}
 
-  '@nuxt/scripts@0.11.13':
-    resolution: {integrity: sha512-8es3Mt8TxM+77icxI+Gelds0txaYR0ZfLORB9I2bgUC6p6ID0n3F+7aoEhCWiyVKgVd2cI17yCJwXSPABN5xTg==}
+  '@nuxt/scripts@0.12.1':
+    resolution: {integrity: sha512-B6h6pT0tAuScve+6opooJL9Zj45OMxaXspxtG65NhXvoT61qQhA/9Mjx1DedWJT7le6YffIvDcciKVrb6xXYYA==}
     peerDependencies:
+      '@googlemaps/markerclusterer': ^2.6.2
+      '@paypal/paypal-js': ^8.1.2
       '@stripe/stripe-js': ^7.0.0
       '@types/google.maps': ^3.58.1
       '@types/vimeo__player': ^2.18.3
       '@types/youtube': ^0.1.0
       '@unhead/vue': ^2.0.3
     peerDependenciesMeta:
+      '@paypal/paypal-js':
+        optional: true
       '@stripe/stripe-js':
         optional: true
       '@types/google.maps':
@@ -2368,6 +2375,9 @@ packages:
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
+  '@types/geojson@7946.0.16':
+    resolution: {integrity: sha512-6C8nqWur3j98U6+lXDfTUWIfgvZU+EumvpHKcYjujKH7woYyLj2sUmff0tRhrqM7BohUw7Pz3ZB1jj2gW9Fvmg==}
+
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
@@ -2410,6 +2420,9 @@ packages:
 
   '@types/semver@7.7.1':
     resolution: {integrity: sha512-FmgJfu+MOcQ370SD0ev7EI8TlCAfKYU+B4m5T3yXc1CiRN94g/SZPtsCkk506aUDtlMnFZvasDwHHUcZUEaYuA==}
+
+  '@types/supercluster@7.1.3':
+    resolution: {integrity: sha512-Z0pOY34GDFl3Q6hUFYf3HkTwKEE02e7QgtJppBt+beEAxnyOpJua+voGFvxINBHa06GwLFFym7gRPY2SiKIfIA==}
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
@@ -4692,6 +4705,10 @@ packages:
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
 
+  fast-equals@5.3.2:
+    resolution: {integrity: sha512-6rxyATwPCkaFIL3JLqw8qXqMpIZ942pTX/tbQFkRsDGblS8tNGtlUauA/+mt6RUfqn/4MoEr+WDkYoIQbibWuQ==}
+    engines: {node: '>=6.0.0'}
+
   fast-fifo@1.3.2:
     resolution: {integrity: sha512-/d9sfos4yxzpwkDkuN7k2SqFKtYNmCTzgfEpz82x34IM9/zc8KGxQoXg1liNC/izpRM/MBdt44Nmx41ZWqk+FQ==}
 
@@ -5405,6 +5422,9 @@ packages:
   jsx-ast-utils@3.3.5:
     resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
     engines: {node: '>=4.0'}
+
+  kdbush@4.0.2:
+    resolution: {integrity: sha512-WbCVYJ27Sz8zi9Q7Q0xHC+05iwkm3Znipc2XTlrnJbsHMYktW4hPhXUE8Ys1engBrvffoSCqbil1JQAa7clRpA==}
 
   keccak@3.0.4:
     resolution: {integrity: sha512-3vKuW0jV8J3XNTzvfyicFR5qvxrSAGl7KIhvgOu5cmWwM7tZRj3fMbj/pfIf4be7aznbc+prBWGjywox/g2Y6Q==}
@@ -7104,6 +7124,9 @@ packages:
     peerDependencies:
       postcss: ^8.4.32
 
+  supercluster@8.0.1:
+    resolution: {integrity: sha512-IiOea5kJ9iqzD2t7QJq/cREyLHTtSmUT6gQsweojg9WH2sYJqZK9SswTu6jrscO6D1G5v5vYZ9ru/eq85lXeZQ==}
+
   superjson@2.2.2:
     resolution: {integrity: sha512-5JRxVqC8I8NuOUjzBbvVJAKNM8qoVuH0O77h4WInc/qC2q5IreqKxYwgkga3PfA22OayK2ikceb/B26dztPl+Q==}
     engines: {node: '>=16'}
@@ -8663,6 +8686,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@googlemaps/markerclusterer@2.6.2':
+    dependencies:
+      '@types/supercluster': 7.1.3
+      fast-equals: 5.3.2
+      supercluster: 8.0.1
+
   '@hexagon/base64@1.1.28': {}
 
   '@humanfs/core@0.19.1': {}
@@ -9464,8 +9493,9 @@ snapshots:
       std-env: 3.9.0
       ufo: 1.6.1
 
-  '@nuxt/scripts@0.11.13(@unhead/vue@2.0.17(vue@3.5.22(typescript@5.9.3)))(db0@0.3.2(drizzle-orm@0.44.5(@neondatabase/serverless@1.0.2)(@types/pg@8.15.5)(kysely@0.28.7)(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.0)(magicast@0.3.5)(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))':
+  '@nuxt/scripts@0.12.1(@googlemaps/markerclusterer@2.6.2)(@unhead/vue@2.0.17(vue@3.5.22(typescript@5.9.3)))(db0@0.3.2(drizzle-orm@0.44.5(@neondatabase/serverless@1.0.2)(@types/pg@8.15.5)(kysely@0.28.7)(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.0)(magicast@0.3.5)(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))':
     dependencies:
+      '@googlemaps/markerclusterer': 2.6.2
       '@nuxt/kit': 4.1.2(magicast@0.3.5)
       '@unhead/vue': 2.0.17(vue@3.5.22(typescript@5.9.3))
       '@vueuse/core': 13.9.0(vue@3.5.22(typescript@5.9.3))
@@ -11404,6 +11434,8 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
+  '@types/geojson@7946.0.16': {}
+
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29': {}
@@ -11444,6 +11476,10 @@ snapshots:
   '@types/resolve@1.20.2': {}
 
   '@types/semver@7.7.1': {}
+
+  '@types/supercluster@7.1.3':
+    dependencies:
+      '@types/geojson': 7946.0.16
 
   '@types/trusted-types@2.0.7': {}
 
@@ -14813,6 +14849,8 @@ snapshots:
 
   fast-deep-equal@3.1.3: {}
 
+  fast-equals@5.3.2: {}
+
   fast-fifo@1.3.2: {}
 
   fast-glob@3.3.3:
@@ -15562,6 +15600,8 @@ snapshots:
       array.prototype.flat: 1.3.3
       object.assign: 4.1.7
       object.values: 1.2.1
+
+  kdbush@4.0.2: {}
 
   keccak@3.0.4:
     dependencies:
@@ -17754,6 +17794,10 @@ snapshots:
       browserslist: 4.26.2
       postcss: 8.5.6
       postcss-selector-parser: 7.1.0
+
+  supercluster@8.0.1:
+    dependencies:
+      kdbush: 4.0.2
 
   superjson@2.2.2:
     dependencies:
