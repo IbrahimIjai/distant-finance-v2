@@ -30,7 +30,7 @@
 		"@studio-freight/lenis": "^1.0.42",
 		"@tanstack/vue-query": "^5.90.2",
 		"@vueuse/core": "^13.3.0",
-		"@vueuse/nuxt": "^12.3.0",
+		"@vueuse/nuxt": "^13.0.0",
 		"@wagmi/vue": "^0.2.11",
 		"better-auth": "^1.2.12",
 		"clsx": "^2.1.1",
