@@ -11,8 +11,7 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@vueuse/nuxt",
     "@nuxt/image",
-    "motion-v/nuxt",
-    "@nuxtjs/supabase",
+    "motion-v/nuxt"
   ],
   ui: {
     theme: {
@@ -62,15 +61,5 @@ export default defineNuxtConfig({
       failOnError: false, // Don't fail build on prerender errors
     },
     logLevel: 'verbose', // Enable verbose logging
-  },
-
-  supabase: {
-    redirectOptions: {
-      login: "/auth/login",
-      callback: "/auth/confirm",
-      include: undefined,
-      exclude: ["/**"],
-      saveRedirectToCookie: false,
-    },
   },
 });
