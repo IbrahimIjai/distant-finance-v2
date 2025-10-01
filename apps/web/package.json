@@ -11,32 +11,32 @@
 	},
 	"devDependencies": {
 		"@nuxt/devtools": "latest",
-		"@nuxt/eslint": "^0.7.4",
-		"@nuxt/image": "1.8.1",
-		"@nuxt/scripts": "^0.11.0",
+		"@nuxt/eslint": "^1.9.0",
+		"@nuxt/image": "1.11.0",
+		"@nuxt/scripts": "^0.12.1",
 		"@nuxt/ui": "4.0.0",
 		"eslint": "^9.17.0",
 		"nuxt": "^4.1.2",
-		"pinia": "^2.3.0",
+		"pinia": "^3.0.3",
 		"vue": "latest"
 	},
 	"dependencies": {
 		"@iconify-json/lucide": "^1.2.46",
 		"@nuxtjs/seo": "^3.0.1",
-		"@paystack/inline-js": "^2.22.6",
+		"@paystack/inline-js": "^2.22.7",
 		"@reown/appkit": "^1.8.8",
 		"@reown/appkit-adapter-solana": "^1.8.8",
 		"@reown/appkit-adapter-wagmi": "^1.8.8",
 		"@studio-freight/lenis": "^1.0.42",
-		"@tanstack/vue-query": "^5.79.2",
+		"@tanstack/vue-query": "^5.90.2",
 		"@vueuse/core": "^13.3.0",
 		"@vueuse/nuxt": "^12.3.0",
-		"@wagmi/vue": "^0.1.20",
+		"@wagmi/vue": "^0.2.11",
 		"better-auth": "^1.2.12",
 		"clsx": "^2.1.1",
 		"motion-v": "^1.2.0",
-		"tailwindcss": "4.0.14",
-		"viem": "^2.30.6",
-		"vue-sonner": "^1.3.0"
+		"tailwindcss": "4.1.13",
+		"viem": "^2.37.9",
+		"vue-sonner": "^2.0.9"
 	}
 }

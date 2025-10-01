@@ -1,65 +1,66 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
-  future: {
-    compatibilityVersion: 4,
-  },
-  modules: [
-    "@nuxt/ui",
-    "@nuxtjs/seo",
-    "@nuxt/eslint",
-    "@vueuse/nuxt",
-    "@nuxt/image",
-    "motion-v/nuxt"
-  ],
-  ui: {
-    theme: {
-      colors: ["primary", "secondary", "success", "info", "warning", "error"],
-      transitions: true,
-    },
-  },
+	devtools: { enabled: true },
+	future: {
+		compatibilityVersion: 4,
+	},
+	runtimeConfig: {
+		public: {
+			projectId: process.env.NUXT_PROJECT_ID,
+		},
+	},
+	modules: [
+		"@nuxt/ui",
+		"@nuxtjs/seo",
+		"@nuxt/eslint",
+		"@vueuse/nuxt",
+		"@nuxt/image",
+		"motion-v/nuxt",
+		"@wagmi/vue/nuxt",
+	],
+	ui: {
+		theme: {
+			colors: ["primary", "secondary", "success", "info", "warning", "error"],
+			transitions: true,
+		},
+	},
 
-  $development: {
-    runtimeConfig: {
-      public: {
-        offchainworkerApiUrl: "https://micro-built.onrender.com",
-      },
-    },
-  },
+	app: {
+		head: {
+			title: "0Xmove",
+			meta: [
+				{ charset: "utf-8" },
+				{ name: "viewport", content: "width=device-width, initial-scale=1" },
+				{ name: "description", content: "0Xmove" },
+			],
+			link: [
+				{
+					id: "favicon",
+					rel: "icon",
+					href: "/favicon-dark.png",
+					media: "(prefers-color-scheme: light)",
+				},
+				{
+					id: "favicon",
+					rel: "icon",
+					href: "/favicon.png",
+					media: "(prefers-color-scheme: dark)",
+				},
+			],
+		},
+	},
+	colorMode: {
+		preference: "dark",
+		fallback: "dark",
+	},
 
-  $production: {
-    runtimeConfig: {
-      public: {
-        offchainworkerApiUrl: "https://distatfiapi.workers.dev",
-      },
-    },
-  },
-
-  colorMode: {
-    preference: "dark",
-    fallback: "dark",
-  },
-
-  imports: {
-    presets: [
-      {
-        from: "vue-sonner",
-        imports: ["toast"],
-      },
-    ],
-  },
-  site: {
-    url: "https://distant.finance",
-  },
-  css: ["~/assets/css/main.css"],
-  compatibilityDate: "2025-01-03",
-  nitro: {
-    prerender: {
-      crawlLinks: false,
-      routes: ["/", "/sitemap.xml"],
-      failOnError: false, // Don't fail build on prerender errors
-    },
-    logLevel: 'verbose', // Enable verbose logging
-  },
+	imports: {
+		autoImport: true,
+	},
+	site: {
+		url: "https://distant.finance",
+	},
+	css: ["~/assets/css/main.css"],
+	compatibilityDate: "2025-01-03",
 });
